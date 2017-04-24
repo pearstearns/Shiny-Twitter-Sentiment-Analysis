@@ -5,7 +5,6 @@ library(ggplot2)
 library(tidyr)
 library(twitteR)
 
-
 shinyServer(function(input, output) {
         output$sentPlot <- renderPlot({
                 ckey = "######"
@@ -30,7 +29,7 @@ shinyServer(function(input, output) {
                         tweets <- searchTwitter(paste(input$sentStr, "OR", input$sentHash, sep = " "),
                                                 n = input$tnum, 
                                                 lang = "en") %>% 
-                                twListToDF()
+                                  twListToDF()
                 } else if(input$sentHash == ""){
                         tweets <- searchTwitter(input$sentStr, n = input$tnum, lang = "en") %>% twListToDF()
                 } else {

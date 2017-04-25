@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ear To The Ground</title>
+  <meta name="description" content="">
+  <meta name="author" content="Ian Roberts">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h1>Ear to the Ground</h1>
+  <h3>Sentiment Analysis with Twitter using Shiny</h3>
+
+<p><small> Created by Ian Roberts </small></p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Why You Should Pay Attention</h2>
+  <p>Say you:</p>
+
+<ul>
+<li>have a new product</li>
+<li>are a part of a PR team</li>
+<li>are a public figure. </li>
+</ul>
+
+<p>Public perception of your brand is very important, but how do you assess it?</p>
+
+<p>You can always do focus groups or polling, but there&#39;s a new weapon for your arsenal you might not have considered.</p>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Sentiment</h2>
+  <p>People put reams upon reams of opinions online each day, for free</p>
+
+<p>Using various APIs, packages, and knowhow, valuable intel can be learned from this amount of data</p>
+
+<p>Sentiment analysis is a technique used to make sense of this data by estimating the emotions within</p>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>The Vibrant Landscape of Twitter</h2>
+  <p>The first offering in what will become a family of products is our Twitter visulizer</p>
+
+<p>A sample of the output is below:</p>
+
+<pre><code>## [1] &quot;Using direct authentication&quot;
+</code></pre>
+
+<pre><code>## Error in loadNamespace(name): there is no package called &#39;webshot&#39;
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  
+  
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>

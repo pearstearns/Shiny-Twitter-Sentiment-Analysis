@@ -12,11 +12,9 @@ The most common way to do this is to use a *sentiment dictionary* where a collec
 
 ### A Look Behind the Curtain
 
-In this tool, the `twitteR` package is used to interact with twitter and collect the tweets, emoticons are stripped, and the data is passed to the `syuzhet`  (the Russian word for 'the way the story is organized') for the analysis. Finally, `ggplot2` is used to visualize the results.
+In this tool, the `twitteR` package is used to interact with twitter and collect the tweets, emoticons are stripped, and the data is passed to the `syuzhet`  (the Russian word for 'the way the story is organized') for the analysis. Finally, `plotly` is used to visualize the results.
 
 The weights were rather simple, multiplying the **favoriteCount** column in the twitter data by the sentiment score.
-
-To be fixed later, but the red line is mean sentiment, the green line is the net sentiment (sentiment values summed and logged), the blue is the trend of the data.
 
 ### Not So Urban Dictionary
 To lend some context to the diferent sentiment dictionaries:

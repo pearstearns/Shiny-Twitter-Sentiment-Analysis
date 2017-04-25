@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
-  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/solarized.css" id="theme">
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" id="theme">
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
@@ -22,49 +22,39 @@
   <h1>Ear to the Ground</h1>
   <h3>Sentiment Analysis with Twitter using Shiny</h3>
 
-<p><small> Created by Ian Roberts </small></p>
+<p>Created by Ian Roberts</p>
 
 </section>
 <section class='' data-state='' id='slide-2'>
-  <h2>Why You Should Pay Attention</h2>
-  <p>Say you:</p>
+  <h3>Overview</h3>
+  <p>This tool allows you to interactively perform and visualize sentiment analysis of twitter search terms.</p>
 
-<ul>
-<li>have a new product</li>
-<li>are a part of a PR team</li>
-<li>are a public figure. </li>
-</ul>
-
-<p>Public perception of your brand is very important, but how do you assess it?</p>
-
-<p>You can always do focus groups or polling, but there&#39;s a new weapon for your arsenal you might not have considered.</p>
+<p>For those not aware, sentiment analysis is a form of natural language processing where the feelings expressed in text data are estimated. </p>
 
 </section>
 <section class='' data-state='' id='slide-3'>
-  <h2>Sentiment</h2>
-  <p>People put reams upon reams of opinions online each day, for free</p>
-
-<p>Using various APIs, packages, and knowhow, valuable intel can be learned from this amount of data</p>
-
-<p>Sentiment analysis is a technique used to make sense of this data by estimating the emotions within</p>
+  <h3>A Look Behind the Curtain</h3>
+  <ul>
+<li>the <code>twitteR</code> package is used to interact with twitter and collect the tweets</li>
+<li>emoticons are stripped</li>
+<li>the data is passed to the <code>syuzhet</code>  (the Russian word for &#39;the way the story is organized&#39;) for the analysis</li>
+<li><p>Finally, <code>ggplot</code> and  <code>plotly</code> is used to visualize the results</p></li>
+<li><p>The data can be weighted by favorites, done by multiplying the <strong>favoriteCount</strong> column in the twitter data by the sentiment score.</p></li>
+</ul>
 
 </section>
 <section class='' data-state='' id='slide-4'>
-  <h2>The Vibrant Landscape of Twitter</h2>
-  <p>The first offering in what will become a family of products is our Twitter visulizer</p>
-
-<p>A sample of the output is below:</p>
-
-<pre><code>## [1] &quot;Using direct authentication&quot;
+  <h2>A Little Taste</h2>
+  <pre><code>## [1] &quot;Using direct authentication&quot;
 </code></pre>
 
-<pre><code>## Error in loadNamespace(name): there is no package called &#39;webshot&#39;
-</code></pre>
+<p><img src="assets/fig/output-1.png" alt="plot of chunk output"></p>
 
 </section>
 <section class='' data-state='' id='slide-5'>
-  
-  
+  <h2>Where You Can Find It</h2>
+  <p>The project is deployed <a href="https://pearstearns.shinyapps.io/week4DDPSentiment/">here</a></p>
+
 </section>
     </div>
   </div>
@@ -79,7 +69,7 @@
     progress: true,
     history: true,
     center: true,
-    theme: Reveal.getQueryHash().theme || 'default', 
+    theme: Reveal.getQueryHash().theme || 'solarized', 
     transition: Reveal.getQueryHash().transition || 'default', 
     dependencies: [
     // Cross-browser shim that fully implements classList -

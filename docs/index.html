@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ear To The Ground</title>
+  <meta name="description" content="">
+  <meta name="author" content="Ian Roberts">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h1>Ear to the Ground</h1>
+  <h3>Sentiment Analysis with Twitter using Shiny</h3>
+
+<p>Created by Ian Roberts</p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h3>Overview</h3>
+  <p>This tool allows you to interactively perform and visualize sentiment analysis of twitter search terms.</p>
+
+<p>For those not aware, sentiment analysis is a form of natural language processing where the feelings expressed in text data are estimated. </p>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h3>A Look Behind the Curtain</h3>
+  <ul>
+<li>the <code>twitteR</code> package is used to interact with twitter and collect the tweets</li>
+<li>emoticons are stripped</li>
+<li>the data is passed to the <code>syuzhet</code>  (the Russian word for &#39;the way the story is organized&#39;) for the analysis</li>
+<li><p>Finally, <code>ggplot</code> and  <code>plotly</code> is used to visualize the results</p></li>
+<li><p>The data can be weighted by favorites, done by multiplying the <strong>favoriteCount</strong> column in the twitter data by the sentiment score.</p></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>A Little Taste</h2>
+  <pre><code>## [1] &quot;Using direct authentication&quot;
+</code></pre>
+
+<p><img src="assets/fig/output-1.png" alt="plot of chunk output"></p>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h2>Where You Can Find It</h2>
+  <p>The project is deployed <a href="https://pearstearns.shinyapps.io/week4DDPSentiment/">here</a></p>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'solarized', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>

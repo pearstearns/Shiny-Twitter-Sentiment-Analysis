@@ -1,16 +1,17 @@
-#server.R
-
 library(dplyr)
 library(ggplot2)
+library(plotly)
+library(syuzhet)
 library(tidyr)
 library(twitteR)
 
+
 shinyServer(function(input, output) {
-        output$sentPlot <- renderPlot({
-                ckey = "######"
-                csec = "######"
-                atok = "######"
-                asec = "######"
+        output$sentPlot <- renderPlotly({
+                ckey = "#####"
+                csec = "#####"
+                atok = "#####"
+                asec = "#####"
                 
                 setup_twitter_oauth(consumer_key = ckey,
                                     consumer_secret = csec,
@@ -29,7 +30,7 @@ shinyServer(function(input, output) {
                         tweets <- searchTwitter(paste(input$sentStr, "OR", input$sentHash, sep = " "),
                                                 n = input$tnum, 
                                                 lang = "en") %>% 
-                                  twListToDF()
+                                twListToDF()
                 } else if(input$sentHash == ""){
                         tweets <- searchTwitter(input$sentStr, n = input$tnum, lang = "en") %>% twListToDF()
                 } else {
@@ -51,24 +52,28 @@ shinyServer(function(input, output) {
                 }
                 
                 if(input$dict == "nrc"){
-                        ggplot(gather(tweets[,17:26]), aes(key, value), fill = key) + 
-                                geom_bar(stat = "identity") +
+                        p <- ggplot(gather(tweets[,17:26]), aes(key, value)) + 
+                                geom_bar(stat = "identity", fill = "#e920b5", color = "#e920b5") +
                                 xlab("Emotions") +
                                 ylab("Frequency")
+                        ggplotly(p)
                 } else {
-                        ggplot(tweets, aes(created, sent)) + 
+                        tweets <- tweets %>% 
+                                mutate(ms = mean(sent))
+                        if(sum(sent) < 0){
+                                tweets$ns <- log(abs(sum(tweets$sent))) * -1
+                        } else {
+                                tweets$ns <- log(sum(tweets$sent))
+                        }
+                        p <- ggplot(tweets, aes(created, sent)) + 
                                 geom_jitter() + 
-                                geom_smooth() + 
-                                geom_hline(yintercept = mean(tweets$sent), 
-                                           color = "red") +
-                                geom_hline(yintercept = log(sum(tweets$sent)),
-                                           color = "green") +
+                                geom_smooth(color = "#e95420") + 
+                                geom_hline(aes(yintercept = tweets$ms, linetype = "Mean Sentiment"), color = "#20b5e9", show.legend = T) +
+                                geom_hline(aes(yintercept = tweets$ns, linetype = "Net Sentiment"), color = "#20e954", show.legend = T) +
                                 xlab("Time") +
-                                ylab("Sentiment Score") +
-                                scale_fill_manual(values = c("red", "green", "blue"),
-                                                  name = "Measures",
-                                                  breaks = c("Mean Sentiment", "Net Sentiment", "Trend"),
-                                                  labels = c("Mean Sentiment", "Net Sentiment", "Trend"))
+                                ylab("Sentiment Score")
+                        ggplotly(p)
                 }
         })
+
 })
